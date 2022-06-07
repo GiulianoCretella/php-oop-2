@@ -2,6 +2,7 @@
 class User{
     protected $nome;
     protected $surName;
+    protected $creditCard;
     function __construct($_nome,$_surName)
     {
         $this->nome = $_nome;
@@ -19,6 +20,14 @@ class User{
      public function getSurName(){
          return $this->surName;
      }
+     public function setCreditCard($_creditsCard){
+         $this->creditCard = $_creditsCard;
+     }
+     public function getCreditCard(){
+         return $this->creditCard;
+     }
+     
+    
 }
 
 ?>
