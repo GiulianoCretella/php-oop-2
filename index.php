@@ -15,23 +15,24 @@ require_once __DIR__.'/Classes/PremiumUser.php';
 require_once __DIR__.'/Classes/Products.php';
 require_once __DIR__.'/Classes/CreditCard.php';
    $utente1 = new User('Giuliano','Cretella');
-   var_dump($utente1);
    $utente2 = new PremiumUser('Giovanni','Barella');
-   $utente2->setSale('20%');
-   $utente2->getSale();
+
    $prodotto1= new Products('Crocchette X Special Salmone','Mangime',30,'Gatto');
    $prodotto2= new Products('Sweet House','Cuccia',58,'Cane');
    $prodotto3= new Products('Ovaiole','Mangime',10,'Gallina');
-   var_dump($prodotto1);
-   var_dump($prodotto2);
-   var_dump($prodotto3);
-   $Creditcard1= new CreditCard('5768987003044005', date('m-Y'),342);
-   $utente2->setCreditCard($Creditcard1);
+
+   $Creditcard1= new CreditCard('1567645389877664', date('10-2019'),133);
+   $Creditcard2= new CreditCard('5768987003044005', date('10-2025'),342);
+   $utente1->setCreditCard($Creditcard1);
+   $utente2->setCreditCard($Creditcard2);
+
+
    $utente2->setTotal($prodotto1->getPrice());
    $utente2->getTotal();
    var_dump($utente2);
-
-   
+   $utente1->setTotal($prodotto1->getPrice());
+   $utente1->getTotal();
+   var_dump($utente1);
 ?>
 
 <!DOCTYPE html>

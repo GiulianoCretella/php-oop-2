@@ -3,6 +3,7 @@ class User{
     protected $nome;
     protected $surName;
     protected $creditCard;
+    protected $totale;
     function __construct($_nome,$_surName)
     {
         $this->nome = $_nome;
@@ -26,7 +27,15 @@ class User{
      public function getCreditCard(){
          return $this->creditCard;
      }
-     
+     public function setTotal($_price){
+        if(date('m-Y') > $this->creditCard->getExpiration()){
+            throw new Exception('carta scaduta');
+        }
+        $this->totale = $_price;
+    }
+    public function getTotal(){
+        return $this->totale;
+    }
     
 }
 
