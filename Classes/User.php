@@ -28,7 +28,7 @@ class User{
          return $this->creditCard;
      }
      public function setTotal($_price){
-        if(date('m-Y') > $this->creditCard->getExpiration()){
+        if ((date('m-Y')) > strtotime($this->creditCard->getExpiration())){
             throw new Exception('carta scaduta');
         }
         $this->totale = $_price;

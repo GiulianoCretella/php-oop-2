@@ -21,8 +21,8 @@ require_once __DIR__.'/Classes/CreditCard.php';
    $prodotto2= new Products('Sweet House','Cuccia',58,'Cane');
    $prodotto3= new Products('Ovaiole','Mangime',10,'Gallina');
 
-   $Creditcard1= new CreditCard('1567645389877664', date('10-2019'),133);
-   $Creditcard2= new CreditCard('5768987003044005', date('10-2025'),342);
+   $Creditcard1= new CreditCard('1567645389877664', '10-2019',133);
+   $Creditcard2= new CreditCard('5768987003044005', '10-2025',342);
    $utente1->setCreditCard($Creditcard1);
    $utente2->setCreditCard($Creditcard2);
 
@@ -30,7 +30,11 @@ require_once __DIR__.'/Classes/CreditCard.php';
    $utente2->setTotal($prodotto1->getPrice());
    $utente2->getTotal();
    var_dump($utente2);
-   $utente1->setTotal($prodotto1->getPrice());
+   try {
+       $utente1->setTotal($prodotto1->getPrice());
+    }catch(Exception $e){
+        echo "Error: ".$e->getMessage();
+    }
    $utente1->getTotal();
    var_dump($utente1);
 ?>
